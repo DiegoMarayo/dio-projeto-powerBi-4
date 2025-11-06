@@ -136,24 +136,16 @@ Cada registro em `fato_professor` representa:
 
 ---
 
-## 🧩 Consultas Analíticas Exemplos
+## 🏁 Conclusão
 
-```sql
--- 1️⃣ Total de alunos por professor
-SELECT p.nome, SUM(f.qtdAlunos) AS total_alunos
-FROM fato_professor f
-JOIN dim_professor p ON f.idProfessor = p.idProfessor
-GROUP BY p.nome;
+Este projeto demonstra a aplicação prática dos conceitos de modelagem dimensional e Data Warehouse,
+convertendo um modelo relacional complexo em um Star Schema otimizado para análise.
 
--- 2️⃣ Carga horária total por departamento
-SELECT d.nomeDepartamento, SUM(f.cargaHoraria) AS total_horas
-FROM fato_professor f
-JOIN dim_departamento d ON f.idDepartamento = d.idDepartamento
-GROUP BY d.nomeDepartamento;
+O resultado é um modelo que permite consultas rápidas, intuitivas e flexíveis, centradas no desempenho docente.
 
--- 3️⃣ Média de avaliação por curso e semestre
-SELECT c.nomeCurso, t.ano, t.semestre, AVG(f.avaliacaoMedia) AS media
-FROM fato_professor f
-JOIN dim_curso c ON f.idCurso = c.idCurso
-JOIN dim_tempo t ON f.idTempo = t.idTempo
-GROUP BY c.nomeCurso, t.ano, t.semestre;
+---
+
+## 🙌 Créditos
+Desenvolvido como parte do bootcamp da Digital Innovation One (DIO).
+
+Autor: Diego Marayo
